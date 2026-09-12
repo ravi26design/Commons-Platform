@@ -228,14 +228,13 @@ nav.top .links details[open] summary .ic{transform:rotate(180deg)}
 .crumb .sep{color:var(--line-2)}.crumb .here{color:var(--ink);font-weight:700}
 @media(max-width:900px){.ehero .in{grid-template-columns:1fr;gap:1.5rem;padding:2.5rem 2rem}}
 @media(max-width:560px){.ehero .in{padding:2rem 1.15rem}}
-/* component row under the hero paragraph — eight tiles in one line, icon over name */
-.hero-comps{display:grid;grid-template-columns:repeat(8,1fr);gap:.75rem;margin:2.25rem auto 0;max-width:80rem;width:100%}
-.hero-comps a{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:.65rem;padding:1rem .5rem .9rem;border:1px solid var(--line-2);border-radius:14px;background:#fff;color:var(--ink);font-size:.82rem;font-weight:600;line-height:1.25;text-align:center;transition:border-color .15s,box-shadow .2s,transform .18s ease}
-.hero-comps a:hover{border-color:var(--green-line);box-shadow:0 14px 28px -18px rgba(74,66,62,.45);transform:translateY(-3px);color:var(--green-d)}
-.hc-ic{display:grid;place-items:center;width:3.4rem;height:3.4rem;border-radius:.9rem;background:var(--bg-soft);flex:none}
-.hc-ic img{width:2.3rem;height:2.3rem;object-fit:contain}
-@media(max-width:1100px){.hero-comps{grid-template-columns:repeat(4,1fr)}}
-@media(max-width:560px){.hero-comps{grid-template-columns:repeat(2,1fr)}}
+/* component row under the hero paragraph */
+.hero-comps{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem;margin:2rem auto 0;max-width:72rem}
+.hero-comps a{display:inline-flex;align-items:center;gap:.6rem;padding:.45rem 1rem .45rem .5rem;border:1px solid var(--line-2);border-radius:999px;background:#fff;color:var(--ink);font-size:.9rem;font-weight:600;transition:border-color .15s,box-shadow .2s,transform .18s ease}
+.hero-comps a:hover{border-color:var(--green-line);box-shadow:0 12px 24px -16px rgba(74,66,62,.45);transform:translateY(-2px);color:var(--green-d)}
+.hc-ic{display:grid;place-items:center;width:2.2rem;height:2.2rem;border-radius:50%;background:var(--bg-soft);flex:none}
+.hc-ic img{width:1.5rem;height:1.5rem;object-fit:contain}
+@media(max-width:560px){.hero-comps a{font-size:.84rem;padding:.4rem .85rem .4rem .45rem}}
 /* the photograph scrolls up with the page, then sticks under the header while the content rides over it */
 .hero-photo{position:sticky;top:5rem;z-index:0;height:calc(100vh - 5rem);height:calc(100dvh - 5rem);overflow:hidden;background:#efe9df}
 .hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center 55%;display:block}
