@@ -153,12 +153,21 @@ nav.top .links details[open] summary .ic{transform:rotate(180deg)}
 @media(max-width:1220px){nav.top .bar{gap:1rem}nav.top .links{gap:1.05rem}nav.top .links a,nav.top .links summary{font-size:.82rem}}
 @media(max-width:980px){nav.top .links{display:none}.navtoggle{display:grid}.navdiv,.langw{display:none}}
 @media(max-width:700px){nav.top .bar{gap:.5rem;padding:0 1.15rem}.navright{gap:1rem}.brand .logo{height:2.8rem}.appsw{display:none}}
-.mobnav{display:none;border-top:1px solid var(--line);background:#fff;padding:.75rem 1.15rem 1.15rem;box-shadow:0 12px 20px -14px rgba(74,66,62,.4)}
+.mobnav{display:none;border-top:1px solid var(--line);background:#fff;padding:.5rem 1.25rem 1.5rem;box-shadow:0 12px 20px -14px rgba(74,66,62,.4);max-height:calc(100vh - 5rem);overflow-y:auto}
 .mobnav.open{display:block}
-.mobnav a{display:flex;align-items:center;gap:.65rem;padding:.7rem .75rem;border-radius:.6rem;font-size:.95rem;font-weight:600;color:var(--muted)}
-.mobnav a.active{background:var(--green-soft);color:var(--green-d)}
-.mobnav .grp{padding:.7rem .75rem .2rem;font-size:.72rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--faint)}
-.mobnav a.sub{padding-left:1.6rem;font-weight:500}
+.mobnav a.main{display:flex;align-items:center;justify-content:space-between;padding:1rem 0;border-bottom:1px solid var(--line);font-family:var(--serif);font-size:1.5rem;color:var(--ink);letter-spacing:-.01em}
+.mobnav a.main .ic{width:1.1rem;height:1.1rem;color:var(--faint)}
+.mobnav a.main.active{color:var(--green-d)}
+.mobnav .mob-comp summary{list-style:none;cursor:pointer}
+.mobnav .mob-comp summary::-webkit-details-marker{display:none}
+.mobnav .mob-comp summary .ic{transition:transform .2s}
+.mobnav .mob-comp[open] summary .ic{transform:rotate(180deg)}
+.mobnav .mob-comp[open] summary{border-bottom-color:transparent}
+.mobnav .mob-comp .subs{padding-top:.25rem}
+.mobnav .grp{padding:1.1rem 0 .5rem;font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+.mobnav .subs{display:grid;grid-template-columns:1fr 1fr;gap:.4rem .75rem;padding-bottom:1rem;border-bottom:1px solid var(--line)}
+.mobnav a.sub{display:flex;align-items:center;padding:.65rem .8rem;border-radius:10px;background:var(--bg-soft);font-size:.86rem;font-weight:600;color:var(--ink-2);line-height:1.25}
+.mobnav a.sub:hover{background:var(--green-soft);color:var(--green-d)}
 
 /* pages held back for now — visible, not clickable */
 .soon{pointer-events:none;cursor:default}
@@ -609,7 +618,7 @@ a.ccard:hover .go{color:#fff;transform:translateX(3px)}
 
 
 /* ---------- responsive refinements ---------- */
-.lang-mob{margin:.35rem .75rem 0;width:calc(100% - 1.5rem);padding:.7rem .8rem;border:1px solid var(--line-2);border-radius:8px;background:#fff;font:inherit;font-size:.95rem;font-weight:600;color:var(--ink)}
+.lang-mob{margin:0;width:100%;padding:.7rem .8rem;border:1px solid var(--line-2);border-radius:8px;background:#fff;font:inherit;font-size:.95rem;font-weight:600;color:var(--ink)}
 @media(max-width:980px){
   .bar:has(.navsearch.open) .navtoggle{display:none}
   .navsearch.open .ns-field{max-width:none}
@@ -831,19 +840,23 @@ footer.site .credits{font-size:.75rem;color:var(--faint);max-width:90rem;margin:
     </div>
   </div>
   <div class="mobnav" id="mobnav">
-    <a href="#about" data-nav>About</a>
-    <div class="grp">Components</div>
-    <a class="sub" href="https://introduction.commonsplatform.in/" target="_blank" rel="noopener">Understanding Commons</a>
-    <a class="sub" href="https://stories.commonsplatform.in/" target="_blank" rel="noopener">Commons Stories</a>
-    <a class="sub" href="https://villageinstitutions.commonsplatform.in/" target="_blank" rel="noopener">Village Institutions</a>
-    <a class="sub" href="https://geoexplorer.commonsplatform.in/" target="_blank" rel="noopener">Commons Explorer</a>
-    <a class="sub" href="https://learning.commonsplatform.in/" target="_blank" rel="noopener">Facilitating Commoning</a>
-    <a class="sub" href="https://legalrepository.commonsplatform.in/" target="_blank" rel="noopener">Legal Repository</a>
-    <a class="sub" href="https://skills.commonsplatform.in/" target="_blank" rel="noopener">Making Expertise Visible</a>
-    <a class="sub" href="https://formbuilder.commonsplatform.in/" target="_blank" rel="noopener">Form Builder</a>
-    <a href="#collaborate" data-nav>Contribute</a>
-    <a href="#partners" data-nav>Partners</a>
-    <a href="#contact" data-nav>Contact</a>
+    <a class="main" href="#about" data-nav>About <svg class="ic"><use href="#i-chevr"/></svg></a>
+    <details class="mob-comp">
+      <summary class="main">Components <svg class="ic"><use href="#i-chev"/></svg></summary>
+      <div class="subs">
+        <a class="sub" href="https://introduction.commonsplatform.in/" target="_blank" rel="noopener">Understanding Commons</a>
+        <a class="sub" href="https://stories.commonsplatform.in/" target="_blank" rel="noopener">Commons Stories</a>
+        <a class="sub" href="https://villageinstitutions.commonsplatform.in/" target="_blank" rel="noopener">Village Institutions</a>
+        <a class="sub" href="https://geoexplorer.commonsplatform.in/" target="_blank" rel="noopener">Commons Explorer</a>
+        <a class="sub" href="https://learning.commonsplatform.in/" target="_blank" rel="noopener">Facilitating Commoning</a>
+        <a class="sub" href="https://legalrepository.commonsplatform.in/" target="_blank" rel="noopener">Legal Repository</a>
+        <a class="sub" href="https://skills.commonsplatform.in/" target="_blank" rel="noopener">Making Expertise Visible</a>
+        <a class="sub" href="https://formbuilder.commonsplatform.in/" target="_blank" rel="noopener">Form Builder</a>
+      </div>
+    </details>
+    <a class="main" href="#collaborate" data-nav>Contribute <svg class="ic"><use href="#i-chevr"/></svg></a>
+    <a class="main" href="#partners" data-nav>Partners <svg class="ic"><use href="#i-chevr"/></svg></a>
+    <a class="main" href="#contact" data-nav>Contact <svg class="ic"><use href="#i-chevr"/></svg></a>
     <div class="grp">Language</div>
     <select class="lang-mob" id="langmob" aria-label="Language"></select>
   </div>
