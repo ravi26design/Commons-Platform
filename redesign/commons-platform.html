@@ -671,9 +671,10 @@ a.ccard:hover .go{color:#fff;transform:translateX(3px)}
 .cform-h .ic-tile{background:var(--green);color:#fff;box-shadow:0 10px 20px -12px rgba(78,124,89,.7)}
 .cform-h h2{font-size:1.6rem}
 .fld{position:relative;display:block}
-.fld>.ic{position:absolute;left:.95rem;top:.95rem;width:1.05rem;height:1.05rem;color:var(--faint);pointer-events:none}
-.fld input,.fld textarea{width:100%;padding-left:2.7rem}
-.fld textarea{padding-top:.8rem}
+.fld>.ic{position:absolute;left:1rem;top:50%;transform:translateY(-50%);width:1.05rem;height:1.05rem;color:var(--faint);pointer-events:none}
+.fld:has(textarea)>.ic{top:1.05rem;transform:none}
+.cform .fld input,.cform .fld textarea{width:100%;padding-left:2.8rem}
+.cform .fld textarea{padding-top:.85rem}
 .fld:focus-within>.ic{color:var(--green)}
 .cform .btn{align-self:stretch;justify-content:center;width:100%;padding:.95rem 1.5rem;font-size:1rem;margin-top:.25rem}
 .cform-note{text-align:center;font-size:.85rem;color:var(--muted)}
