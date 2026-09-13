@@ -749,8 +749,8 @@ footer.site .credits{font-size:.75rem;color:var(--faint);max-width:90rem;margin:
         </div>
       </details>
       <a href="#collaborate" data-nav>Contribute</a>
-      <a href="#partners" data-nav class="soon" aria-disabled="true" tabindex="-1">Partners</a>
-      <a href="#contact" data-nav class="soon" aria-disabled="true" tabindex="-1">Contact</a>
+      <a href="#partners" data-nav>Partners</a>
+      <a href="#contact" data-nav>Contact</a>
     </div>
     <div class="navright">
       <div class="navsearch" id="navsearch">
@@ -778,8 +778,8 @@ footer.site .credits{font-size:.75rem;color:var(--faint);max-width:90rem;margin:
     <a class="sub" href="https://skills.commonsplatform.in/" target="_blank" rel="noopener">Making Expertise Visible</a>
     <a class="sub" href="https://formbuilder.commonsplatform.in/" target="_blank" rel="noopener">Form Builder</a>
     <a href="#collaborate" data-nav>Contribute</a>
-    <a href="#partners" data-nav class="soon" aria-disabled="true" tabindex="-1">Partners</a>
-    <a href="#contact" data-nav class="soon" aria-disabled="true" tabindex="-1">Contact</a>
+    <a href="#partners" data-nav>Partners</a>
+    <a href="#contact" data-nav>Contact</a>
     <div class="grp">Language</div>
     <select class="lang-mob" id="langmob" aria-label="Language"></select>
   </div>
@@ -1130,8 +1130,8 @@ footer.site .credits{font-size:.75rem;color:var(--faint);max-width:90rem;margin:
     <div><h5>Platform</h5><ul>
       <li><a href="#about" data-nav>About Us</a></li>
       <li><a href="#collaborate" data-nav>Contribute</a></li>
-      <li><a href="#partners" data-nav class="soon" aria-disabled="true" tabindex="-1">Partners</a></li>
-      <li><a href="#contact" data-nav class="soon" aria-disabled="true" tabindex="-1">Contact Us</a></li></ul></div>
+      <li><a href="#partners" data-nav>Partners</a></li>
+      <li><a href="#contact" data-nav>Contact Us</a></li></ul></div>
     <div><h5>Legal</h5><ul>
       <li><a href="https://commonsplatform.in/policy">Privacy Policy</a></li>
       <li><a href="https://commonsplatform.in/terms">Terms of Use</a></li></ul>
@@ -1173,7 +1173,6 @@ footer.site .credits{font-size:.75rem;color:var(--faint);max-width:90rem;margin:
   }
   function route(){
     var h=(location.hash||'#home').slice(1);
-    if(['partners','contact'].indexOf(h)>-1){h='home';history.replaceState(null,'','#home');}
     if(views.some(function(v){return v.dataset.view===h})){showView(h);window.scrollTo(0,0);return}
     var el=document.getElementById(h);
     if(el){var v=el.closest('[data-view]');showView(v?v.dataset.view:'home');el.scrollIntoView({block:'start'});return}
