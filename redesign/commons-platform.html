@@ -695,6 +695,26 @@ a.ccard:hover .go{color:#fff;transform:translateX(3px)}
 .cform .btn:hover{transform:translateY(-2px);box-shadow:0 18px 32px -14px rgba(78,124,89,.6)}
 .cform-note{margin-top:-.4rem}
 
+/* phone fixes: swagger frame and contribute tabs */
+.sw-link{display:block;overflow-wrap:anywhere;word-break:break-all}
+.sw-select{max-width:100%;overflow-wrap:anywhere}
+@media(max-width:700px){
+  .sw-op{grid-template-columns:auto 1fr;gap:.5rem .7rem;padding:.5rem .6rem}
+  .sw-op code{font-size:.82rem;overflow-wrap:anywhere;word-break:break-all}
+  .sw-op .sw-s{grid-column:1/-1;font-size:.8rem}
+  .sw-op>.ic{display:none}
+  .sw-m{min-width:4rem;font-size:.72rem;padding:.3rem .45rem}
+  .sw-tag span{font-size:1rem}
+  .sw-top b{font-size:1rem}
+  .sw-logo{height:2rem}
+  .facts span{font-size:.68rem}
+}
+@media(max-width:480px){
+  .tab{padding:.6rem .5rem;font-size:.82rem;gap:.35rem}
+  .tab .ic{display:none}
+  .svc-tx b{font-size:.85rem}
+}
+
 /* ---------- footer ---------- */
 footer.site{position:relative;z-index:1;background:#fff;color:var(--muted);border-top:1px solid var(--line-2)}
 footer.site .cols{max-width:90rem;margin:0 auto;padding:3.75rem 2rem 2.5rem;display:grid;grid-template-columns:minmax(0,1.1fr) repeat(3,minmax(0,1fr));gap:2.5rem}
