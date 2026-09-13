@@ -664,6 +664,22 @@ a.ccard:hover .go{color:#fff;transform:translateX(3px)}
 .logos-sec{padding-top:0}
 .contact-sec{padding-top:.5rem}
 
+/* contact refinements */
+.cform{border-radius:20px;gap:1.2rem}
+.cform-h .ic-tile{background:var(--green);color:#fff;box-shadow:0 10px 20px -12px rgba(78,124,89,.7)}
+.cform-h h2{font-size:1.6rem}
+.fld{position:relative;display:block}
+.fld>.ic{position:absolute;left:.95rem;top:.95rem;width:1.05rem;height:1.05rem;color:var(--faint);pointer-events:none}
+.fld input,.fld textarea{width:100%;padding-left:2.7rem}
+.fld textarea{padding-top:.8rem}
+.fld:focus-within>.ic{color:var(--green)}
+.cform .btn{align-self:stretch;justify-content:center;width:100%;padding:.95rem 1.5rem;font-size:1rem;margin-top:.25rem}
+.cform-note{text-align:center;font-size:.85rem;color:var(--muted)}
+.cform-note a{color:var(--green-d);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.cinfo{background:linear-gradient(160deg,var(--green) 0%,var(--green-d) 100%);border-radius:20px}
+.cinfo-h h2{font-size:1.75rem}
+.ccard{padding:1.15rem 1.25rem;border-radius:16px}
+
 /* ---------- footer ---------- */
 footer.site{position:relative;z-index:1;background:#fff;color:var(--muted);border-top:1px solid var(--line-2)}
 footer.site .cols{max-width:90rem;margin:0 auto;padding:3.75rem 2rem 2.5rem;display:grid;grid-template-columns:minmax(0,1.1fr) repeat(3,minmax(0,1fr));gap:2.5rem}
@@ -1096,11 +1112,12 @@ footer.site .credits{font-size:.75rem;color:var(--faint);max-width:90rem;margin:
       <form class="cform" onsubmit="event.preventDefault();this.querySelector('button').textContent='Sent'">
         <div class="cform-h"><span class="ic-tile"><svg class="ic"><use href="#i-mail"/></svg></span><div><h2>Send a Message</h2><p>We usually reply within a few working days.</p></div></div>
         <div class="cform-row">
-          <label>Full Name<input type="text" name="name" required autocomplete="name" placeholder="Your name"></label>
-          <label>Email Address<input type="email" name="email" required autocomplete="email" placeholder="you@organisation.org"></label>
+          <label>Full Name<span class="fld"><svg class="ic"><use href="#i-user"/></svg><input type="text" name="name" required autocomplete="name" placeholder="Your name"></span></label>
+          <label>Email Address<span class="fld"><svg class="ic"><use href="#i-mail"/></svg><input type="email" name="email" required autocomplete="email" placeholder="you@organisation.org"></span></label>
         </div>
-        <label>Message<textarea name="message" required placeholder="How can we help?"></textarea></label>
+        <label>Message<span class="fld"><svg class="ic"><use href="#i-file"/></svg><textarea name="message" required placeholder="How can we help?"></textarea></span></label>
         <button class="btn btn-primary arrow" type="submit">Send Inquiry <svg class="ic"><use href="#i-arrow"/></svg></button>
+        <p class="cform-note">Or write to us at <a href="mailto:support@indiaobservatory.org.in">support@indiaobservatory.org.in</a></p>
       </form>
       <div class="cinfo">
         <div class="cinfo-h"><span class="kicker">Reach us directly</span><h2>Direct Communication</h2></div>
