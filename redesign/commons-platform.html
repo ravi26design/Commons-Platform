@@ -717,6 +717,14 @@ a.ccard:hover .go{color:#fff;transform:translateX(3px)}
   .svc-tx b{font-size:.85rem}
 }
 
+@media(max-width:980px){
+  .bar:has(.navsearch.open) .brand{display:none}
+  .bar:has(.navsearch.open) .navright{flex:1;width:100%;gap:.6rem}
+  .bar:has(.navsearch.open) .navsearch{flex:1;width:100%}
+  .bar:has(.navsearch.open) .ns-field{flex:1;max-width:none}
+  .bar:has(.navsearch.open) .ns-field input{width:100%}
+}
+
 /* ---------- footer ---------- */
 footer.site{position:relative;z-index:1;background:#fff;color:var(--muted);border-top:1px solid var(--line-2)}
 footer.site .cols{max-width:90rem;margin:0 auto;padding:3.75rem 2rem 2.5rem;display:grid;grid-template-columns:minmax(0,1.1fr) repeat(3,minmax(0,1fr));gap:2.5rem}
