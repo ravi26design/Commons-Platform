@@ -1026,14 +1026,8 @@ footer.site .credits{font-size:.75rem;color:var(--faint);max-width:90rem;margin:
   <div class="ehero mid"><div class="in">
     <span class="kicker">Search results</span>
     <h1 id="sr-title">Results</h1>
-    <form class="sr-search" role="search" onsubmit="event.preventDefault();runSearch(this.q.value)">
-      <svg class="ic"><use href="#i-search"/></svg>
-      <input type="search" name="q" id="sr-input" placeholder="Search components, documents, judgements, datasets, stories…" aria-label="Search">
-      <button type="submit" class="btn btn-primary">Search</button>
-    </form>
   </div></div>
   <section class="section band search-results" id="search-results"><div class="mx">
-    <div class="sr-head"><p class="sub" id="sr-count"></p><button class="btn btn-outline sm" type="button" id="sr-clear">Clear search</button></div>
     <h2 class="sr-h" id="sr-comp-h">Components</h2>
     <div class="grid g3" id="sr-grid"></div>
     <h2 class="sr-h" id="sr-doc-h">Documents</h2>
@@ -1345,13 +1339,12 @@ footer.site .credits{font-size:.75rem;color:var(--faint);max-width:90rem;margin:
       '<div class="dc-foot"><span class="dc-src"><svg class="ic"><use href="#i-pin"/></svg>'+esc(d.jur)+'</span><a class="dc-view" href="'+d.url+'" target="_blank" rel="noopener">View <svg class="ic"><use href="#i-chevr"/></svg></a></div></article>';
   }
   function runSearch(q){
-    q=(q||'').trim(); var grid=document.getElementById('sr-grid'), docs=document.getElementById('sr-docs'), empty=document.getElementById('sr-empty'), title=document.getElementById('sr-title'), count=document.getElementById('sr-count'), ch=document.getElementById('sr-comp-h'), dh=document.getElementById('sr-doc-h');
+    q=(q||'').trim(); var grid=document.getElementById('sr-grid'), docs=document.getElementById('sr-docs'), empty=document.getElementById('sr-empty'), title=document.getElementById('sr-title'), ch=document.getElementById('sr-comp-h'), dh=document.getElementById('sr-doc-h');
     if(q.length<2){ if(document.body.dataset.view==='search'){location.hash='#home';} return; }
     var words=q.toLowerCase().split(/\s+/).filter(Boolean);
     var hits=SEARCH_INDEX.filter(function(d){var hay=(d.name+' '+d.desc+' '+d.tags).toLowerCase();return words.every(function(w){return hay.indexOf(w)>-1})});
     var dhits=DOC_INDEX.filter(function(d){var hay=(d.t+' '+d.d+' '+d.type+' '+d.cat+' '+d.src+' '+d.jur+' '+d.themes.join(' ')).toLowerCase();return words.every(function(w){return hay.indexOf(w)>-1})});
-    title.innerHTML='Results for <em>&ldquo;'+esc(q)+'&rdquo;</em>'; var si=document.getElementById('sr-input'); if(si) si.value=q; nsin.value=q;
-    count.textContent=hits.length+' component'+(hits.length===1?'':'s')+' and '+dhits.length+' document'+(dhits.length===1?'':'s')+' match your search.';
+    title.innerHTML='Results for <em>&ldquo;'+esc(q)+'&rdquo;</em>'; nsin.value=q;
     grid.innerHTML=hits.map(function(d){return '<article class="doccard compcard"><div class="dc-top"><span class="dc-type" style="background:var(--green)">Component</span><img class="dc-ic" src="'+d.icon+'" alt=""></div><h3>'+hl(d.name,q)+'</h3><p>'+hl(d.desc,q)+'</p><div class="dc-foot"><span class="dc-src"><svg class="ic"><use href="#i-globe"/></svg>'+esc(d.url.replace(/^https?:\/\//,'').replace(/\/$/,''))+'</span><a class="dc-view" href="'+d.url+'" target="_blank" rel="noopener">Explore <svg class="ic"><use href="#i-chevr"/></svg></a></div></article>'}).join('');
     docs.innerHTML=dhits.map(function(d){return docCard(d,q)}).join('');
     ch.hidden=grid.hidden=hits.length===0; dh.hidden=docs.hidden=dhits.length===0;
@@ -1363,7 +1356,6 @@ footer.site .credits{font-size:.75rem;color:var(--faint);max-width:90rem;margin:
   window.runSearch=runSearch;
   var nsin=document.getElementById('nsin');
   nsin.closest('form').addEventListener('submit',function(e){e.preventDefault();runSearch(nsin.value)});
-  document.getElementById('sr-clear').addEventListener('click',function(){nsin.value='';document.getElementById('navsearch').classList.remove('open');location.hash='#home'});
   window.addEventListener('hashchange',route);route();
   document.getElementById('navtoggle').addEventListener('click',function(){var m=document.getElementById('mobnav');var o=m.classList.toggle('open');this.setAttribute('aria-expanded',o?'true':'false')});
   document.addEventListener('click',function(e){
