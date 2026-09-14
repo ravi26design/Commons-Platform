@@ -782,6 +782,25 @@ a.ccard:hover .go{color:#fff;transform:translateX(3px)}
 .compcard .dc-ic{width:2.6rem;height:2.6rem;object-fit:contain}
 .compcard p{-webkit-line-clamp:3}
 .doccard mark,.sr-card mark{background:var(--amber-soft);color:var(--amber-d);padding:0 .1rem;border-radius:2px}
+/* search page */
+.sr-search{display:flex;align-items:center;gap:.5rem;width:100%;max-width:44rem;margin:1.75rem auto 0;background:#fff;border:1.5px solid var(--line-2);border-radius:999px;padding:.4rem .4rem .4rem 1.1rem;box-shadow:0 14px 34px -22px rgba(74,66,62,.4)}
+.sr-search>.ic{width:1.15rem;height:1.15rem;color:var(--faint);flex:none}
+.sr-search input{flex:1;min-width:0;border:0;background:none;font:inherit;font-size:1rem;color:var(--ink);padding:.6rem .3rem;outline:none;-webkit-appearance:none;appearance:none}
+.sr-search input::-webkit-search-cancel-button{-webkit-appearance:none;display:none}
+.sr-search .btn{border-radius:999px;padding:.65rem 1.4rem}
+.sr-search:focus-within{border-color:var(--green);box-shadow:0 0 0 4px rgba(78,124,89,.12)}
+.sr-head{background:#fff;border:1px solid var(--line);border-radius:14px;padding:.9rem 1.25rem;margin-bottom:1.75rem}
+.sr-head .sub{font-weight:600;color:var(--ink-2)}
+.sr-empty{background:#fff;border:1px dashed var(--line-2);border-radius:20px;padding:3rem 1.5rem;display:flex;flex-direction:column;align-items:center;text-align:center;gap:.6rem}
+.sr-empty-ic{display:grid;place-items:center;width:3.6rem;height:3.6rem;border-radius:50%;background:var(--green-soft);color:var(--green-d);margin-bottom:.4rem}
+.sr-empty-ic .ic{width:1.5rem;height:1.5rem}
+.sr-empty h3{font-size:1.5rem}
+.sr-empty p{color:var(--muted);max-width:36rem}
+.sr-sugg{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;margin-top:.75rem}
+.sr-sugg button{border:1px solid var(--line-2);background:#fff;border-radius:999px;padding:.45rem .95rem;font:inherit;font-size:.88rem;font-weight:600;color:var(--ink-2);cursor:pointer;transition:background .15s,color .15s,border-color .15s}
+.sr-sugg button:hover{background:var(--green-soft);color:var(--green-d);border-color:var(--green-line)}
+@media(max-width:560px){.sr-search{flex-wrap:wrap;border-radius:16px;padding:.6rem}.sr-search input{width:100%;flex:1 1 100%}.sr-search .btn{width:100%}}
+
 /* ---------- footer ---------- */
 footer.site{position:relative;z-index:1;background:#fff;color:var(--muted);border-top:1px solid var(--line-2)}
 footer.site .cols{max-width:90rem;margin:0 auto;padding:3.75rem 2rem 2.5rem;display:grid;grid-template-columns:minmax(0,1.1fr) repeat(3,minmax(0,1fr));gap:2.5rem}
@@ -1007,14 +1026,24 @@ footer.site .credits{font-size:.75rem;color:var(--faint);max-width:90rem;margin:
   <div class="ehero mid"><div class="in">
     <span class="kicker">Search results</span>
     <h1 id="sr-title">Results</h1>
+    <form class="sr-search" role="search" onsubmit="event.preventDefault();runSearch(this.q.value)">
+      <svg class="ic"><use href="#i-search"/></svg>
+      <input type="search" name="q" id="sr-input" placeholder="Search components, documents, judgements, datasets, stories…" aria-label="Search">
+      <button type="submit" class="btn btn-primary">Search</button>
+    </form>
   </div></div>
-  <section class="section band topline search-results" id="search-results"><div class="mx">
+  <section class="section band search-results" id="search-results"><div class="mx">
     <div class="sr-head"><p class="sub" id="sr-count"></p><button class="btn btn-outline sm" type="button" id="sr-clear">Clear search</button></div>
     <h2 class="sr-h" id="sr-comp-h">Components</h2>
     <div class="grid g3" id="sr-grid"></div>
     <h2 class="sr-h" id="sr-doc-h">Documents</h2>
     <div class="grid g3" id="sr-docs"></div>
-    <p class="sr-empty" id="sr-empty" hidden>Nothing matches that keyword. Try another term such as "forest", "pond", "panchayat", "grazing", "map" or "training".</p>
+    <div class="sr-empty" id="sr-empty" hidden>
+      <span class="sr-empty-ic"><svg class="ic"><use href="#i-search"/></svg></span>
+      <h3>No results found</h3>
+      <p>Nothing matches that keyword. Check the spelling, or try one of these:</p>
+      <div class="sr-sugg"><button type="button">forest</button><button type="button">pond</button><button type="button">panchayat</button><button type="button">grazing</button><button type="button">map</button><button type="button">training</button><button type="button">judgement</button></div>
+    </div>
   </div></section>
 </section>
 
@@ -1321,7 +1350,7 @@ footer.site .credits{font-size:.75rem;color:var(--faint);max-width:90rem;margin:
     var words=q.toLowerCase().split(/\s+/).filter(Boolean);
     var hits=SEARCH_INDEX.filter(function(d){var hay=(d.name+' '+d.desc+' '+d.tags).toLowerCase();return words.every(function(w){return hay.indexOf(w)>-1})});
     var dhits=DOC_INDEX.filter(function(d){var hay=(d.t+' '+d.d+' '+d.type+' '+d.cat+' '+d.src+' '+d.jur+' '+d.themes.join(' ')).toLowerCase();return words.every(function(w){return hay.indexOf(w)>-1})});
-    title.innerHTML='Results for <em>&ldquo;'+esc(q)+'&rdquo;</em>';
+    title.innerHTML='Results for <em>&ldquo;'+esc(q)+'&rdquo;</em>'; var si=document.getElementById('sr-input'); if(si) si.value=q; nsin.value=q;
     count.textContent=hits.length+' component'+(hits.length===1?'':'s')+' and '+dhits.length+' document'+(dhits.length===1?'':'s')+' match your search.';
     grid.innerHTML=hits.map(function(d){return '<article class="doccard compcard"><div class="dc-top"><span class="dc-type" style="background:var(--green)">Component</span><img class="dc-ic" src="'+d.icon+'" alt=""></div><h3>'+hl(d.name,q)+'</h3><p>'+hl(d.desc,q)+'</p><div class="dc-foot"><span class="dc-src"><svg class="ic"><use href="#i-globe"/></svg>'+esc(d.url.replace(/^https?:\/\//,'').replace(/\/$/,''))+'</span><a class="dc-view" href="'+d.url+'" target="_blank" rel="noopener">Explore <svg class="ic"><use href="#i-chevr"/></svg></a></div></article>'}).join('');
     docs.innerHTML=dhits.map(function(d){return docCard(d,q)}).join('');
@@ -1330,6 +1359,7 @@ footer.site .credits{font-size:.75rem;color:var(--faint);max-width:90rem;margin:
     if(document.body.dataset.view!=='search'){history.pushState(null,'','#search');showView('search');}
     window.scrollTo({top:0,behavior:'smooth'});
   }
+  document.querySelectorAll('.sr-sugg button').forEach(function(b){b.addEventListener('click',function(){runSearch(b.textContent)})});
   window.runSearch=runSearch;
   var nsin=document.getElementById('nsin');
   nsin.closest('form').addEventListener('submit',function(e){e.preventDefault();runSearch(nsin.value)});
