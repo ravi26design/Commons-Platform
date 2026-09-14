@@ -779,6 +779,8 @@ a.ccard:hover .go{color:#fff;transform:translateX(3px)}
 .dc-view{display:inline-flex;align-items:center;gap:.2rem;font-size:.95rem;font-weight:700;color:#1e3a5f}
 .dc-view .ic{width:1rem;height:1rem}
 .dc-view:hover{color:var(--green-d)}
+.compcard .dc-ic{width:2.6rem;height:2.6rem;object-fit:contain}
+.compcard p{-webkit-line-clamp:3}
 .doccard mark,.sr-card mark{background:var(--amber-soft);color:var(--amber-d);padding:0 .1rem;border-radius:2px}
 /* ---------- footer ---------- */
 footer.site{position:relative;z-index:1;background:#fff;color:var(--muted);border-top:1px solid var(--line-2)}
@@ -1321,7 +1323,7 @@ footer.site .credits{font-size:.75rem;color:var(--faint);max-width:90rem;margin:
     var dhits=DOC_INDEX.filter(function(d){var hay=(d.t+' '+d.d+' '+d.type+' '+d.cat+' '+d.src+' '+d.jur+' '+d.themes.join(' ')).toLowerCase();return words.every(function(w){return hay.indexOf(w)>-1})});
     title.innerHTML='Results for <em>&ldquo;'+esc(q)+'&rdquo;</em>';
     count.textContent=hits.length+' component'+(hits.length===1?'':'s')+' and '+dhits.length+' document'+(dhits.length===1?'':'s')+' match your search.';
-    grid.innerHTML=hits.map(function(d){return '<article class="sr-card"><div class="ch"><span class="ic-tile"><img src="'+d.icon+'" alt=""></span><h3>'+hl(d.name,q)+'</h3></div><p>'+hl(d.desc,q)+'</p><a class="f-cta" href="'+d.url+'" target="_blank" rel="noopener">Explore Component <svg class="ic"><use href="#i-chevr"/></svg></a></article>'}).join('');
+    grid.innerHTML=hits.map(function(d){return '<article class="doccard compcard"><div class="dc-top"><span class="dc-type" style="background:var(--green)">Component</span><img class="dc-ic" src="'+d.icon+'" alt=""></div><h3>'+hl(d.name,q)+'</h3><p>'+hl(d.desc,q)+'</p><div class="dc-foot"><span class="dc-src"><svg class="ic"><use href="#i-globe"/></svg>'+esc(d.url.replace(/^https?:\/\//,'').replace(/\/$/,''))+'</span><a class="dc-view" href="'+d.url+'" target="_blank" rel="noopener">Explore <svg class="ic"><use href="#i-chevr"/></svg></a></div></article>'}).join('');
     docs.innerHTML=dhits.map(function(d){return docCard(d,q)}).join('');
     ch.hidden=grid.hidden=hits.length===0; dh.hidden=docs.hidden=dhits.length===0;
     empty.hidden=(hits.length+dhits.length)>0;
