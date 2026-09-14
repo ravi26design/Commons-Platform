@@ -1329,8 +1329,7 @@ footer.site .credits{font-size:.75rem;color:var(--faint);max-width:90rem;margin:
     window.scrollTo({top:0,behavior:'smooth'});
   }
   window.runSearch=runSearch;
-  var nsin=document.getElementById('nsin'), nsT;
-  nsin.addEventListener('input',function(){clearTimeout(nsT);var v=this.value;nsT=setTimeout(function(){runSearch(v)},250)});
+  var nsin=document.getElementById('nsin');
   nsin.closest('form').addEventListener('submit',function(e){e.preventDefault();runSearch(nsin.value)});
   document.getElementById('sr-clear').addEventListener('click',function(){nsin.value='';document.getElementById('navsearch').classList.remove('open');location.hash='#home'});
   window.addEventListener('hashchange',route);route();
