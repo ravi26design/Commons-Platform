@@ -601,6 +601,9 @@ a.ccard:hover{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.35
 .ccard .ic-tile .ic{width:1.3rem;height:1.3rem}
 .ccard b{display:block;font-size:.72rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:.2rem}
 .ccard span:not(.ic-tile),.ccard address{font-style:normal;font-size:.96rem;font-weight:600;color:#fff;line-height:1.5;word-break:break-word}
+.ccard-links{display:flex;flex-direction:column;gap:.35rem}
+.ccard-links a{font-size:.96rem;font-weight:600;color:#fff;line-height:1.4;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(255,255,255,.4)}
+.ccard-links a:hover{text-decoration-color:#fff}
 .ccard-hint{display:block;margin-top:.35rem;font-size:.74rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:rgba(255,255,255,.75)}
 .ccard .go{color:rgba(255,255,255,.7);width:1rem;height:1rem;transition:transform .15s,color .15s}
 a.ccard:hover .go{color:#fff;transform:translateX(3px)}
@@ -957,8 +960,8 @@ footer.site .credits{font-size:.75rem;color:var(--faint);max-width:90rem;margin:
       <h2>Ready to join the initiative?</h2>
       <p><span class="flowline">Content &amp; Data <svg class="ic"><use href="#i-arrow"/></svg> Stories &amp; Experience <svg class="ic"><use href="#i-arrow"/></svg> Strategic Collaboration</span><br>Become a part of the collaborative space for sustainable commons management.</p>
       <div class="row">
-        <a class="btn btn-white arrow" href="#collaborate" data-nav>Partner with Us <svg class="ic"><use href="#i-arrow"/></svg></a>
-        <a class="btn btn-outline" href="https://legalrepository.commonsplatform.in/" target="_blank" rel="noopener">Contribute Content</a>
+        <a class="btn btn-white arrow" href="#partners" data-nav>Partner with Us <svg class="ic"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-outline" href="#collaborate" data-nav>Contribute Content</a>
       </div>
     </div>
   </div>
@@ -1023,7 +1026,7 @@ footer.site .credits{font-size:.75rem;color:var(--faint);max-width:90rem;margin:
   <div class="gateway">
     <h2>Ready to join the initiative?</h2>
     <p>Become a part of the collaborative space for sustainable commons management.</p>
-    <div class="row"><a class="btn btn-white arrow" href="#partners" data-nav>Partner with Us <svg class="ic"><use href="#i-arrow"/></svg></a><a class="btn btn-outline" href="https://commonsplatform.in/contribute">Contribute Content</a></div>
+    <div class="row"><a class="btn btn-white arrow" href="#partners" data-nav>Partner with Us <svg class="ic"><use href="#i-arrow"/></svg></a><a class="btn btn-outline" href="#collaborate" data-nav>Contribute Content</a></div>
   </div>
 </section>
 
@@ -1064,7 +1067,7 @@ footer.site .credits{font-size:.75rem;color:var(--faint);max-width:90rem;margin:
       <div class="ready">
         <h2>Ready to Collaborate?</h2>
         <p>Our team is waiting to partner with you on content, data, or technology solutions.</p>
-        <a class="btn btn-primary" href="mailto:support@indiaobservatory.org.in">support@indiaobservatory.org.in</a>
+        <a class="btn btn-primary" href="mailto:collaborate@commonsplatform.in">collaborate@commonsplatform.in</a>
       </div>
     </div>
 
@@ -1111,7 +1114,7 @@ footer.site .credits{font-size:.75rem;color:var(--faint);max-width:90rem;margin:
       <div class="howto-card">
         <h2>How to Get Started?</h2>
         <ol class="steps3">
-          <li><span class="n"><svg class="ic"><use href="#i-key"/></svg></span><h3>Request an API key</h3><p>Request an API key from FES: <a href="mailto:support@indiaobservatory.org.in">support@indiaobservatory.org.in</a>.</p></li>
+          <li><span class="n"><svg class="ic"><use href="#i-key"/></svg></span><h3>Request an API key</h3><p>Request an API key from FES: <a href="mailto:support@commonsplatform.in">support@commonsplatform.in</a>.</p></li>
           <li><span class="n"><svg class="ic"><use href="#i-book"/></svg></span><h3>Explore the documentation</h3><p>Explore the Swagger documentation to understand payloads.</p></li>
           <li><span class="n"><svg class="ic"><use href="#i-code"/></svg></span><h3>Start querying</h3><p>Include the API key in headers to start querying data.</p></li>
         </ol>
@@ -1119,7 +1122,7 @@ footer.site .credits{font-size:.75rem;color:var(--faint);max-width:90rem;margin:
       <div class="ready">
         <h2>Ready to Collaborate?</h2>
         <p>Our team is waiting to partner with you on content, data, or technology solutions.</p>
-        <a class="btn btn-primary" href="mailto:support@indiaobservatory.org.in">support@indiaobservatory.org.in</a>
+        <a class="btn btn-primary" href="mailto:collaborate@commonsplatform.in">collaborate@commonsplatform.in</a>
       </div>
     </div>
   </div></section>
@@ -1175,13 +1178,12 @@ footer.site .credits{font-size:.75rem;color:var(--faint);max-width:90rem;margin:
         </div>
         <label>Message<span class="fld"><svg class="ic"><use href="#i-file"/></svg><textarea name="message" required placeholder="How can we help?"></textarea></span></label>
         <button class="btn btn-primary arrow" type="submit">Send Inquiry <svg class="ic"><use href="#i-arrow"/></svg></button>
-        <p class="cform-note">Or write to us at <a href="mailto:support@indiaobservatory.org.in">support@indiaobservatory.org.in</a></p>
+        <p class="cform-note">Or write to us at <a href="mailto:support@commonsplatform.in">support@commonsplatform.in</a></p>
       </form>
       <div class="cinfo">
         <div class="cinfo-h"><span class="kicker">Reach us directly</span><h2>Direct Communication</h2></div>
-        <a class="ccard" href="mailto:support@indiaobservatory.org.in"><span class="ic-tile"><svg class="ic"><use href="#i-mail"/></svg></span><div><b>Electronic Mail</b><span>support@indiaobservatory.org.in</span></div><svg class="ic go"><use href="#i-arrow"/></svg></a>
-        <a class="ccard" href="https://www.indiaobservatory.org.in/" target="_blank" rel="noopener"><span class="ic-tile"><svg class="ic"><use href="#i-globe"/></svg></span><div><b>Official Portal</b><span>www.indiaobservatory.org.in</span></div><svg class="ic go"><use href="#i-ext"/></svg></a>
-        <a class="ccard" href="https://www.google.com/maps/search/?api=1&query=Foundation+for+Ecological+Security+Jahangirpura+Gopalpura+Vadod+Anand+Gujarat" target="_blank" rel="noopener"><span class="ic-tile"><svg class="ic"><use href="#i-pin"/></svg></span><div><b>Headquarters</b><address>Post Box No. 29, At - Jahangirpura,<br>PO - Gopalpura, Vadod - 388 370,<br>Hadgud, District - Anand, Gujarat, INDIA</address><small class="ccard-hint">Open in Google Maps</small></div><svg class="ic go"><use href="#i-ext"/></svg></a>
+        <a class="ccard" href="mailto:support@commonsplatform.in"><span class="ic-tile"><svg class="ic"><use href="#i-mail"/></svg></span><div><b>Electronic Mail</b><span>support@commonsplatform.in</span></div><svg class="ic go"><use href="#i-arrow"/></svg></a>
+        <div class="ccard"><span class="ic-tile"><svg class="ic"><use href="#i-globe"/></svg></span><div class="ccard-links"><a href="https://fes.org.in/" target="_blank" rel="noopener">https://fes.org.in/</a><a href="https://www.indiaobservatory.org.in/" target="_blank" rel="noopener">www.indiaobservatory.org.in</a></div></div>
       </div>
     </div>
   </div></section>
