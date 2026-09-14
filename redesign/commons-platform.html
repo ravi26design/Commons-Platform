@@ -749,6 +749,11 @@ a.ccard:hover .go{color:#fff;transform:translateX(3px)}
   .bar:has(.navsearch.open) .ns-field input{width:100%}
 }
 
+/* a lone card on the last row sits centred */
+#components .grid.g3 > .card.comp:last-child:nth-child(3n+1){grid-column:2}
+@media(max-width:980px){#components .grid.g3 > .card.comp:last-child:nth-child(3n+1){grid-column:1/-1;width:calc(50% - .675rem);justify-self:center}}
+@media(max-width:700px){#components .grid.g3 > .card.comp:last-child:nth-child(3n+1){width:100%}}
+
 /* ---------- footer ---------- */
 footer.site{position:relative;z-index:1;background:#fff;color:var(--muted);border-top:1px solid var(--line-2)}
 footer.site .cols{max-width:90rem;margin:0 auto;padding:3.75rem 2rem 2.5rem;display:grid;grid-template-columns:minmax(0,1.1fr) repeat(3,minmax(0,1fr));gap:2.5rem}
